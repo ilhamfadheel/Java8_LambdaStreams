@@ -19,9 +19,12 @@ public class RefactorHW {
                 .collect(Collectors.toList());
     }
 
-    // using stream function, compare 2 invoices and return the value difference
-    // between the amount of each invoice using the stream function
-    Integer diffInteger = invoices.stream().map(invoice -> invoice.getAmount()).reduce(0, (a, b) -> a - b);
+    //sort oracleAndTrainingInvoices from highest to lowers using stream function
+    public void sortOracleAndTrainingInvoices() {
+        oracleAndTrainingInvoices = oracleAndTrainingInvoices.stream()
+                .sorted((invoice1, invoice2) -> invoice2.getAmount().compareTo(invoice1.getAmount()))
+                .collect(Collectors.toList());
+    }
 
     // using stream function, return into ids inv.getId() from
     // oracleAndTrainingInvoices
